@@ -1,8 +1,9 @@
 // Array's for possible password characters
-let characterOptions = [];
-
-// Setting variables for generate password function
-// writePassword.password = ""
+let characterOptions = ["!@#$%&*()_+-=[]|,./?><",
+  "0123456789",
+  "abcdefghijklmnopqrstuvwxyz",
+  "ABCDEFGHILKLMNOPQRSTUVWXYZ"
+];
 
 // Function for generating password
 function generatePassword(password) {
@@ -11,8 +12,8 @@ function generatePassword(password) {
   // Set length of password
   let numberOfCharacters = prompt("How many characters would you like your password to contain?");
 
-  // Choosing what characters to include in password
   if ((numberOfCharacters >= 8) && (numberOfCharacters <= 128)) {
+    // Choosing what characters to include in password
     characterOptions = [];
     let includeSpecial = confirm("Click OK to use special characters.");
     let includeNumeric = confirm("Click OK to use numeric characters.");
@@ -31,18 +32,9 @@ function generatePassword(password) {
       characterOptions.push("ABCDEFGHILKLMNOPQRSTUVWXYZ");
     }
     console.log(characterOptions)
-  }
-
-  // Alerts if password is too short or too long
-  else if (numberOfCharacters < 8)
-    alert("Password must be at least 8 characters.");
-  else if (numberOfCharacters > 128)
-    alert("Password can not be more then 128 characters.");
 
   // For loop choosing password characters
-  if ((numberOfCharacters >= 8) && (numberOfCharacters <= 128)) {
-    for (let i = 0; i < numberOfCharacters ; i++) {
-      
+    for (let i = 0; i < numberOfCharacters ; i++) {      
       // Randomly choosing character option
       let passwordOption = Math.floor(Math.random() * (characterOptions.length));
       let passwordCharacter = Math.floor(Math.random() * (characterOptions[passwordOption].length));
@@ -51,6 +43,14 @@ function generatePassword(password) {
         console.log(password)
     }
   }
+
+  // Alerts if password is too short or too long
+  else if (numberOfCharacters < 8)
+    alert("Password must be at least 8 characters.");
+  else if (numberOfCharacters > 128)
+    alert("Password can not be more then 128 characters.");
+  
+  // Return the result for the password to be displayed
   return password
 }
 
@@ -59,7 +59,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  let password = generatePassword(writePassword.password);
+  let password = generatePassword();
   let passwordText = document.querySelector("#password");
 
   passwordText.value = password;
