@@ -6,13 +6,14 @@ let characterOptions = ["!@#$%&*()_+-=[]|,./?><",
 ];
 
 // Function for generating password
-function generatePassword(password) {
-  password = ""
+function generatePassword() {
+  password = "";
 
   // Set length of password
   let numberOfCharacters = prompt("How many characters would you like your password to contain?");
 
   if ((numberOfCharacters >= 8) && (numberOfCharacters <= 128)) {
+
     // Choosing what characters to include in password
     characterOptions = [];
     let includeSpecial = confirm("Click OK to use special characters.");
@@ -34,13 +35,16 @@ function generatePassword(password) {
     console.log(characterOptions)
 
   // For loop choosing password characters
-    for (let i = 0; i < numberOfCharacters ; i++) {      
+    for (let i = 0; i < numberOfCharacters ; i++) {
+
       // Randomly choosing character option
       let passwordOption = Math.floor(Math.random() * (characterOptions.length));
       let passwordCharacter = Math.floor(Math.random() * (characterOptions[passwordOption].length));
+        
+        // Adding the randomly selected characters together.
         console.log(characterOptions[passwordOption][passwordCharacter]);
         password = password + characterOptions[passwordOption][passwordCharacter];
-        console.log(password)
+        console.log(password);
     }
   }
 
@@ -51,7 +55,7 @@ function generatePassword(password) {
     alert("Password can not be more then 128 characters.");
   
   // Return the result for the password to be displayed
-  return password
+  return password;
 }
 
 // Assignment Code
