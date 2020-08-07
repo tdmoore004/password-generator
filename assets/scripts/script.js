@@ -12,7 +12,6 @@ function generatePassword() {
     if (numberOfCharacters > 128)
       alert("Password can not be more then 128 characters.");
     numberOfCharacters = prompt("How many characters would you like your password to contain?");
-
   }
 
   // Setting the array for password character options
@@ -51,7 +50,6 @@ function generatePassword() {
     password = password + characterOptions[passwordOption][passwordCharacter];
     console.log(password);
   }
-
 
   // Return the result for the password to be displayed
   return password;
