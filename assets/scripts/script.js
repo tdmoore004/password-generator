@@ -36,7 +36,6 @@ function generatePassword() {
   if (includeUpperCase === true) {
     characterOptions.push("ABCDEFGHILKLMNOPQRSTUVWXYZ");
   }
-  console.log(characterOptions)
 
   // For loop choosing password characters
   for (let i = 0; i < numberOfCharacters; i++) {
@@ -46,9 +45,7 @@ function generatePassword() {
     let passwordCharacter = Math.floor(Math.random() * (characterOptions[passwordOption].length));
 
     // Adding the randomly selected characters together.
-    console.log(characterOptions[passwordOption][passwordCharacter]);
     password = password + characterOptions[passwordOption][passwordCharacter];
-    console.log(password);
   }
 
   // Return the result for the password to be displayed
@@ -64,10 +61,6 @@ function writePassword() {
   let passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
-  console.log(password);
-  console.log(passwordText.value);
-
 }
 
 // Add event listener to generate button
