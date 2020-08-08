@@ -6,14 +6,17 @@ function generatePassword() {
   let numberOfCharacters = prompt("How many characters would you like your password to contain?");
 
   // While loop for alerting the user for the acceptable length of password
-  while ((numberOfCharacters < 8) || (numberOfCharacters > 128)) {
+  while (((numberOfCharacters < 8) && (numberOfCharacters)) || (numberOfCharacters > 128)) {
     if (numberOfCharacters < 8)
       alert("Password must be at least 8 characters.");
     if (numberOfCharacters > 128)
       alert("Password can not be more then 128 characters.");
     numberOfCharacters = prompt("How many characters would you like your password to contain?");
   }
-
+  
+  // Exit function if user clicks cancel on number of characters prompt
+  if (!numberOfCharacters) return password;
+  
   // Setting the array for password character options
   let characterOptions = [];
 
